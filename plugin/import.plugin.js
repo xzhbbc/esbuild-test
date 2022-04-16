@@ -23,9 +23,18 @@ export default class ImportReplace extends Visitor {
     const body = module.body
     const newBody = []
     if (!body) return module
+    // const prefixMap = {}
     for (let i = 0; i < body.length; i++) {
       const bodyItem = body[i]
       if (!(bodyItem.type == 'ImportDeclaration' && (bodyItem.source.value == 'react' || bodyItem.source.value == 'react-dom'))) {
+        // let prefix = ''
+        // bodyItem.specifiers.forEach((item, index) => {
+        //   if (index == 0) {
+        //     prefix = item.local.value
+        //   } else {
+        //     prefixMap[item.local.value] = prefix
+        //   }
+        // })
         // if (bodyItem.type == 'ImportDeclaration') {
         //   // 是文件类型的
         //   // extname(coverSrc + )

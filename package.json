@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fal-works/esbuild-plugin-global-externals": "^2.1.2",
     "@swc/core": "^1.2.165",
     "esbuild": "^0.14.30",
     "fs-extra": "^10.0.1",
