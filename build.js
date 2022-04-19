@@ -45,11 +45,12 @@ const buildCode = async () => {
     bundle: true,
     loader: { '.js': 'jsx', '.scss': 'css' },
     external: ['react', 'react-dom'],
+    chunkNames: 'chunks/[name]-[hash]',
     plugins: [
       globalExternals({
         react: {
           varName: 'React',
-          namedExports: ['useEffect', 'useMemo', 'useCallback'],
+          namedExports: ['useEffect', 'useMemo', 'useCallback', 'Suspense'],
           defaultExport: true
         },
         'react-dom': {
@@ -59,7 +60,9 @@ const buildCode = async () => {
         }
       }),
       // testPlugin
-    ]
+    ],
+    format: 'esm',
+    splitting: true
   })
   copyFileSync('./index.html', './dist/index.html')
 }
